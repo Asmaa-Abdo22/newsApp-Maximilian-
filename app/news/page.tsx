@@ -1,9 +1,14 @@
-import React from 'react'
 
-const page = () => {
+import { DUMMY_NEWS } from "../../dummy-news";
+import NewsList from "@/components/NewsList/NewsList";
+
+const NewsPage = () => {
   return (
-   <div>News page</div>
-  )
-}
+    <>
+     <h1>News Page</h1>
+     <NewsList news={DUMMY_NEWS} />
+    </>
+  );
+};
 
-export default page
+export default NewsPage;

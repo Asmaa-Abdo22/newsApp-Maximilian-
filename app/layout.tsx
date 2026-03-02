@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import MainHeader from "@/components/MainHeader/MainHeader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: 'Next.js Page Routing & Rendering',
-  description: 'Learn how to route to different pages.',
-}
+  title: "Next.js Page Routing & Rendering",
+  description: "Learn how to route to different pages.",
+};
 
 export default function RootLayout({
   children,
@@ -27,7 +28,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div id="page">
+          <MainHeader />
+          {children}
+        </div>
       </body>
     </html>
   );
