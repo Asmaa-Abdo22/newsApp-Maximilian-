@@ -2,7 +2,7 @@
 const FilterError = ({
   error,
 }: {
-  error: Error & { digest?: string };
+  error: Error ;
 }) => {
   return (
     <>

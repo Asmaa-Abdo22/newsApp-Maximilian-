@@ -6,7 +6,6 @@ import {
   getNewsForYearAndMonth,
 } from "@/lib/news";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 
 const FilterdNewsPage = async ({
   params,
@@ -21,14 +20,14 @@ const FilterdNewsPage = async ({
     selectedYear !== undefined &&
     !getAvailableNewsYears().includes(+selectedYear)
   ) {
-    notFound();
+    throw new Error("Invalid year selected");
   }
   if (
     selectedYear !== undefined &&
     selectedMonth !== undefined &&
     !getAvailableNewsMonths(selectedYear).includes(+selectedMonth)
   ) {
-    notFound();
+   throw new Error("Invalid month selected");
   }
 
   let news;
