@@ -40,7 +40,7 @@
 
 ## Screenshots
 
-(https://github.com/user-attachments/assets/19efbfb9-ca7f-4c27-948b-78a631294721)
+![Home Page](https://github.com/user-attachments/assets/19efbfb9-ca7f-4c27-948b-78a631294721)
 
 ---
 
