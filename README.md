@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NewsApp (Maximilian)
+
+**NewsApp** is a learning project that demonstrates building a modern news/preview site with the Next.js App Router and TypeScript. It follows patterns taught in Maximilian Schwarzmüller’s Next.js course and highlights server components, dynamic routes, clean UX, and simple local data handling.
+
+---
+
+## What It Does
+
+- **Browse news** — View lists of news items with images, titles, summaries, and published dates. Individual articles have clean URLs (e.g. `/news/some-article-slug`).
+- **Article details** — See full article content with images and metadata on a dedicated page.
+- **Modal & image views** — Dedicated modal and image routes for richer interactions (lightbox-style image pages).
+- **Responsive UX** — Responsive layout, loading states, not-found and error handling where needed.
+
+---
+
+## Key Features
+
+| Feature                 | Description                                                                                    |
+| ----------------------- | ---------------------------------------------------------------------------------------------- |
+| **Article catalog**     | Server-rendered list of articles with loading fallbacks and Suspense patterns.                 |
+| **Dynamic routes**      | Per-article pages under `/news/[newsSlug]` with nested route variants (details, modal, image). |
+| **Image handling**      | Image routes under `app/news/[newsSlug]/image` and modal image UI.                             |
+| **Reusable components** | `MainHeader`, `NavLink`, `NewsList` and other components in `components/`.                     |
+| **Routing helpers**     | Custom router hook in `hooks/routerHook.tsx` for navigation helpers.                           |
+| **Data layer**          | Lightweight `lib/news.ts` for fetching article lists and single articles.                      |
+
+---
+
+## Tech Stack
+
+| Category         | Technology                                                       |
+| ---------------- | ---------------------------------------------------------------- |
+| **Framework**    | Next.js (App Router)                                             |
+| **Language**     | TypeScript                                                       |
+| **UI**           | React (server + client components)                               |
+| **Styling**      | Tailwind CSS (or plain CSS modules depending on files in `app/`) |
+| **Image assets** | Static images under `public/images/news/`                        |
+
+---
+
+## Screenshots
+
+(https://github.com/user-attachments/assets/19efbfb9-ca7f-4c27-948b-78a631294721)
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+ recommended
+- npm (or yarn/pnpm)
+
+### 1. Clone and install
+
+```bash
+git clone <repository-url>
+cd newsappmaximilian
+npm install
+```
+
+### 2. Run the app
+
+**Development:**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Production:**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+---
+## Project Structure (high level)
 
-To learn more about Next.js, take a look at the following resources:
+```
+newsappmaximilian/
+├── app/
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── (content)/
+│   ├── (marketing)/
+│   └── news/
+│       ├── page.tsx
+│       ├── [newsSlug]/
+│       │   ├── layout.tsx
+│       │   ├── page.tsx
+│       │   ├── @Details/
+│       │   │   └── page.tsx
+│       │   └── @modal/
+│       │       └── (.)image/page.tsx
+│       └── image/page.tsx
+├── components/
+│   ├── MainHeader/
+│   ├── NavLink/
+│   └── NewsList/
+├── hooks/
+│   └── routerHook.tsx
+├── lib/
+│   └── news.ts
+├── public/
+│   └── images/news/
+├── package.json
+└── README.md
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
+## Notes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- This is an educational/demo project used to learn the App Router, nested routes, loading/error UI, and composition of server/client components.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
